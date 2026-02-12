@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>San Valentín 💌</title>
 
-  <!-- Tu CSS del sobre -->
-  <link rel="stylesheet" href="/carta/sobre/sobre.css" />
+  <!-- ✅ RUTA RELATIVA (no /carta/...) -->
+  <link rel="stylesheet" href="./carta/sobre/sobre.css" />
 </head>
 
 <body class="bg">
-  <!-- Overlay para la lluvia de corazones (GSAP) -->
   <div id="hearts" class="hearts-layer"></div>
 
   <main class="wrap">
@@ -23,7 +22,6 @@
           <div class="env-right"></div>
           <div class="env-bottom"></div>
 
-          <!-- IMPORTANTE: IDs que usa envelope.js -->
           <div id="behindHearts" class="behind-hearts">
             <div class="big-hearts">💖💗</div>
           </div>
@@ -33,13 +31,11 @@
         </div>
       </div>
 
-      <button id="openBtn" class="btn-primary" type="button">
-        Abrir carta
-      </button>
+      <button id="openBtn" class="btn-primary" type="button">Abrir carta</button>
     </section>
   </main>
 
-  <!-- JS del sobre (con animación y redirect a /carta/) -->
-  <script type="module" src="/src/envelope.js"></script>
+  <!-- ✅ RUTA RELATIVA (no /src/...) -->
+  <script type="module" src="./src/envelope.js"></script>
 </body>
 </html>

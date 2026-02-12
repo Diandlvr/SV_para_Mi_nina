@@ -1,17 +1,20 @@
 import "./style.css";
 import { gsap } from "gsap";
 
+/* ✅ Base para que funcione en GitHub Pages */
+const BASE = import.meta.env.BASE_URL;
+
 /* ---------- Overlay layer (lluvia) ---------- */
 const heartsLayer = document.getElementById("hearts");
 const canvas = document.getElementById("tree");
 
-/* ✅ Lista de fotos (deben estar en /public) */
+/* ✅ Lista de fotos (en /public) — con BASE */
 const photos = [
-  "/foto1.jpeg",  "/foto2.jpeg",  "/foto3.jpeg",  "/foto4.jpeg",  "/foto5.jpeg",
-  "/foto6.jpeg",  "/foto7.jpeg",  "/foto8.jpeg",  "/foto9.jpeg",  "/foto10.jpeg",
-  "/foto11.jpeg", "/foto12.jpeg", "/foto13.jpeg", "/foto14.jpeg", "/foto15.jpeg",
-  "/foto16.jpeg", "/foto17.jpeg", "/foto18.jpeg", "/foto19.jpeg", "/foto20.jpeg",
-  "/foto21.jpeg",
+  `${BASE}foto1.jpeg`,  `${BASE}foto2.jpeg`,  `${BASE}foto3.jpeg`,  `${BASE}foto4.jpeg`,  `${BASE}foto5.jpeg`,
+  `${BASE}foto6.jpeg`,  `${BASE}foto7.jpeg`,  `${BASE}foto8.jpeg`,  `${BASE}foto9.jpeg`,  `${BASE}foto10.jpeg`,
+  `${BASE}foto11.jpeg`, `${BASE}foto12.jpeg`, `${BASE}foto13.jpeg`, `${BASE}foto14.jpeg`, `${BASE}foto15.jpeg`,
+  `${BASE}foto16.jpeg`, `${BASE}foto17.jpeg`, `${BASE}foto18.jpeg`, `${BASE}foto19.jpeg`, `${BASE}foto20.jpeg`,
+  `${BASE}foto21.jpeg`,
 ];
 
 /* ---------- Cargar texto editable desde public/texto.txt ---------- */
@@ -20,8 +23,8 @@ async function loadLetterText() {
   if (!el) return;
 
   try {
-    // ✅ funciona en dev y en GH Pages (base correcto en vite.config.js)
-    const res = await fetch("./texto.txt", { cache: "no-store" });
+    const res = await fetch(`${BASE}texto.txt`, { cache: "no-store" });
+    if (!res.ok) throw new Error("texto.txt not found");
     const txt = await res.text();
     el.textContent = txt;
   } catch {
