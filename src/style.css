@@ -1,0 +1,156 @@
+/* Fondo */
+.bg{
+  margin:0;
+  min-height:100vh;
+  background: radial-gradient(1200px 600px at 50% 0%, #ffd7df 0%, #f7b9c6 40%, #f6b0c0 100%);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Layout */
+.wrap{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:28px;
+}
+
+.card{
+  width:min(980px, 96vw);
+  border-radius:28px;
+  background: rgba(255,255,255,.55);
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 30px 80px rgba(0,0,0,.15);
+  backdrop-filter: blur(10px);
+  position:relative;
+}
+
+.card.big{ padding:26px; }
+.card.beige{
+  background:#f3dfc9;
+  box-shadow: 0 30px 80px rgba(0,0,0,.18);
+}
+.card.full{ padding:26px; }
+
+/* Hearts overlay */
+.hearts-layer{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+/* Envelope */
+.envelope-wrap{ display:flex; justify-content:center; padding:10px 0 20px; }
+.envelope{
+  width:min(620px, 92%);
+  aspect-ratio: 16/10;
+  border-radius:22px;
+  background: linear-gradient(135deg,#ffc4cf,#ff9fb2);
+  box-shadow: 0 20px 60px rgba(0,0,0,.18);
+  position:relative;
+  overflow:hidden;
+}
+
+.env-left,.env-right,.env-bottom{ position:absolute; inset:0; }
+.env-left{
+  clip-path: polygon(0 50%, 50% 100%, 0 100%);
+  background: rgba(255,255,255,.18);
+}
+.env-right{
+  clip-path: polygon(100% 50%, 50% 100%, 100% 100%);
+  background: rgba(255,255,255,.12);
+}
+.env-bottom{
+  clip-path: polygon(0 50%, 50% 100%, 100% 50%, 100% 100%, 0 100%);
+  background: rgba(0,0,0,.05);
+}
+
+.flap{
+  position:absolute;
+  left:0; top:0;
+  width:100%; height:55%;
+  transform-origin: top center;
+  background: linear-gradient(#ffb0bf,#ff8aa4);
+  clip-path: polygon(0 0, 100% 0, 50% 80%);
+}
+
+.behind-hearts{ position:absolute; inset:0; display:flex; justify-content:center; align-items:center; opacity:0; }
+.big-hearts{ font-size:44px; }
+
+.fake-letter{
+  position:absolute;
+  left:50%;
+  top:12%;
+  transform: translateX(-50%);
+  width:88%;
+  height:34%;
+  border-radius:18px;
+  background: rgba(255,255,255,.88);
+  opacity:0;
+}
+
+.btn-primary{
+  display:block;
+  width:min(320px, 92%);
+  margin: 0 auto;
+  padding: 14px 18px;
+  border:0;
+  border-radius:18px;
+  font-weight:700;
+  color:white;
+  background: linear-gradient(90deg,#e63b4f,#ff6b83);
+  cursor:pointer;
+  box-shadow: 0 18px 40px rgba(230,59,79,.25);
+}
+
+/* Carta layout (SIN divisiones) */
+.letter-layout{
+  display:grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 18px;
+  align-items:stretch;
+}
+
+.letter-text{
+  background: rgba(255,255,255,.55);
+  border-radius:22px;
+  padding:20px;
+  line-height:1.9;
+  font-size:15px;
+}
+
+.tree{
+  width:100%;
+  height:520px;
+  border-radius:22px;
+  background: rgba(255,255,255,.25);
+  display:block;
+}
+
+/* Botón orgánico */
+.heart-fab{
+  position:absolute;
+  top:16px; right:16px;
+  border:0;
+  border-radius:999px;
+  padding:10px 12px;
+  background: rgba(255,255,255,.7);
+  box-shadow: 0 10px 22px rgba(0,0,0,.15);
+  cursor:pointer;
+}
+
+/* flores grandes */
+.flower{
+  position:absolute;
+  bottom:10px;
+  font-size:48px;
+  opacity:.95;
+}
+.flower.left{ left:14px; }
+.flower.right{ right:14px; }
+
+@media (max-width: 860px){
+  .letter-layout{ grid-template-columns: 1fr; }
+  .tree{ height:420px; }
+}
