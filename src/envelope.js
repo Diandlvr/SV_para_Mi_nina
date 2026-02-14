@@ -65,5 +65,6 @@ openBtn?.addEventListener("click", () => {
     window.location.assign(import.meta.env.BASE_URL + "carta/");
 
 
+
   }, 700);
 });
