@@ -1,0 +1,199 @@
+:root{
+  --bg: #efe2cf;
+  --paper: rgba(255,255,255,.22);
+  --ink:#2b1d16;
+  --radius: 22px;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--ink);
+
+  /* ✅ Tipografía elegante (texto) */
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+
+  position: relative;
+  z-index: 0;
+}
+
+/* ====== Layout general ====== */
+.page{
+  min-height: 100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 22px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Si existe .letter en tu HTML, esto la centra y limita el ancho */
+.letter{
+  width: min(1200px, 96vw);
+  position: relative;
+  z-index: 2;
+}
+
+/* Contenedor carta */
+.content{
+  width: 100%;
+  border-radius: calc(var(--radius) - 8px);
+  background: var(--paper);
+
+  /* ✅ IMPORTANTE: NO height:100% (eso causó el mega espacio) */
+  height: auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* texto / árbol */
+  gap: 2px;                      /* ✅ poco espacio entre ambos */
+  padding: 12px;
+
+  position: relative;
+  z-index: 3;
+}
+
+/* ====== Texto ====== */
+.text{
+  min-width: 0;
+  padding: 0;
+  overflow: hidden; /* no barras raras en desktop */
+}
+
+.text h2{
+  margin: 0 0 12px;
+
+  /* ✅ Título romántico */
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1.05;
+}
+
+#letterText{
+  white-space: pre-wrap;
+  line-height: 1.85;
+  font-size: 16px;
+}
+
+/* ====== Árbol ====== */
+.art{
+  position: relative;
+  min-width: 0;
+
+  /* ✅ CLAVE: altura controlada (evita canvas gigante) */
+  height: 420px;        /* desktop bonito */
+  align-self: start;    /* no estira por la fila */
+}
+
+#tree{
+  width: 100%;
+  height: 100%;
+  display:block;
+  border-radius: 14px;
+}
+
+/* ====== Botón ====== */
+.heart-fab{
+  position:absolute;
+  top: 14px;
+  right: 14px;
+  border: 0;
+  cursor: pointer;
+  user-select:none;
+
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background: #ffffff;
+  box-shadow: 0 14px 26px rgba(0,0,0,.12);
+}
+.heart-fab:hover{ transform: translateY(-1px); }
+.heart-fab:active{ transform: translateY(0) scale(.98); }
+
+/* ====== Lluvia de fotos detrás ====== */
+#hearts,
+.hearts-layer{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1 !important;
+}
+
+/* ====== MÓVIL ====== */
+@media (max-width: 768px) {
+  .page{
+    padding: 10px;
+    align-items: flex-start;
+  }
+
+  .letter{
+    width: min(520px, 92vw);
+  }
+
+  .content{
+    grid-template-columns: 1fr; /* una columna */
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .text h2{
+    font-size: 38px;
+  }
+
+  #letterText{
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .art{
+    height: 46svh; /* ✅ no se tapa todo */
+    min-height: 280px;
+  }
+}
+.heart-fab,
+#heartRainBtn{
+  display: none !important;
+}
+
+/* ✅ Ajuste específico para móviles tipo iPhone 11 Pro */
+@media (max-width: 420px) {
+
+  .content{
+    padding: 10px;
+    gap: 8px;
+  }
+
+  /* Título más pequeño */
+  .text h2{
+    font-size: 32px;   /* antes 38-44 */
+    line-height: 1.05;
+    margin-bottom: 10px;
+  }
+
+  /* Texto de carta más compacto */
+  #letterText{
+    font-size: 14px;   /* antes 15-16 */
+    line-height: 1.55; /* más compacto */
+  }
+
+  /* Evita que el texto empuje demasiado */
+  .text{
+    max-height: 34svh;   /* el resto para el árbol */
+    overflow-y: auto;
+  }
+
+  /* Árbol un poco menos alto */
+  .art{
+    height: 44svh;
+    min-height: 240px;
+  }
+}

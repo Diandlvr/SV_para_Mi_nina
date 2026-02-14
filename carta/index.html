@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carta ❤️</title>
+
+  <!-- ✅ RELATIVO -->
+  <link rel="stylesheet" href="./carta.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <div id="hearts" class="hearts-layer"></div>
+
+  <main class="page">
+    <section class="letter">
+      <button id="heartRainBtn" class="heart-fab" type="button" aria-label="Lluvia de fotos">
+        ❤️
+      </button>
+
+      <div class="content">
+        <div class="text">
+          <h2>Para el amor de mi vida:</h2>
+          <div id="letterText"></div>
+        </div>
+
+        <div class="art">
+          <canvas id="tree"></canvas>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ✅ RELATIVO desde /carta/ a /src/ -->
+  <script type="module" src="../src/carta.js"></script>
+</body>
+</html>

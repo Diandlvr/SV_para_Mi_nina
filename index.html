@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>San Valentín 💌</title>
+
+  <!-- ✅ RUTA RELATIVA (no /carta/...) -->
+  <link rel="stylesheet" href="./carta/sobre/sobre.css" />
+</head>
+
+<body class="bg">
+  <div id="hearts" class="hearts-layer"></div>
+
+  <main class="wrap">
+    <section class="card big">
+      <h1 style="text-align:center; margin: 18px 0 8px;">Tengo algo para ti 💌</h1>
+
+      <div class="envelope-wrap">
+        <div class="envelope" aria-hidden="true">
+          <div class="env-left"></div>
+          <div class="env-right"></div>
+          <div class="env-bottom"></div>
+
+          <div id="behindHearts" class="behind-hearts">
+            <div class="big-hearts">💖💗</div>
+          </div>
+
+          <div id="letter" class="fake-letter"></div>
+          <div id="flap" class="flap"></div>
+        </div>
+      </div>
+
+      <button id="openBtn" class="btn-primary" type="button">Abrir carta</button>
+    </section>
+  </main>
+
+  <!-- ✅ RUTA RELATIVA (no /src/...) -->
+  <script type="module" src="./src/envelope.js"></script>
+</body>
+</html>
