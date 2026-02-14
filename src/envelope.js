@@ -62,7 +62,8 @@ openBtn?.addEventListener("click", () => {
 
   setTimeout(() => {
     console.log("REDIRECT ✅");
-    window.location.assign("./carta/");
+    window.location.assign(import.meta.env.BASE_URL + "carta/");
+
 
   }, 700);
 });
